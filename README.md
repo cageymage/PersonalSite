@@ -1,5 +1,7 @@
 # Astro Starter Kit: Blog
 
+This is a change to my readme!
+
 ```sh
 npm create astro@latest -- --template blog
 ```
