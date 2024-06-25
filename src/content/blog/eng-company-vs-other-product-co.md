@@ -1,7 +1,7 @@
 ---
 title: 'Software based companies'
 description: 'vs non software product companies'
-pubDate: 'Jan 22 2018'
+pubDate: 'April 22 2022'
 heroImage: '/blog-placeholder-2.jpg'
 ---
 

@@ -1,36 +1,18 @@
 ---
-title: 'Software Engineering (and maybe not-so) Basics'
-description: 'Software Engineering Basics'
-pubDate: 'May 08 2024'
-updatedDate: 'June 23 2024'
+title: 'SEB Part III - The Industry'
+description: 'Software Engineering Basics Part III'
+pubDate: 'May 10 2024'
+updatedDate: 'July 10 2024'
 heroImage: '/se-basics-blog.jpg'
 ---
 
-Ever wondered what it was like to develop software professionally? Maybe you took a college course or two, or dabbled at home in the ever increasing availability and proliferation of programming languages. Or maybe you are here because you've done nothing, and are just very interested! 
-
-When I got into programming in the 1900s (yes, it existed), there were so few resources and fewer ways of connecting to other programmers that school was really the only option at the age I was. Later in life, I took an opportunity to get into professional software development at the food service company I worked in the restaurants for, a certain... culty-popular California burger chain. 
-
-While I am forever grateful for the opportunity (which positively changed the trajectory of my life), I also had little to no guidance on industry practices, what professional groups or communities were out there, and what it meant to work in an "Engineering" wing within a broader organization.
-
-What I hoping to accomplish here is introducing and expanding on a large number of topics that may or may not come up in traditional schooling or prep courses (boot camps, etc). We will focus on a lot of 'basics', however I will also be introducing more intermediate topics like automated testing and logging / observability.
-
-## TODO List
-- [X] Throw this page into a github repo
-- [ ] Split into multi part series
-- [ ] Give a head's up to discord Dev-Watercooler
-- [ ] Fill out some more sections
-- [ ] Get a general "training" list down
-- [ ] Continue to look for and add opportunities
-
-## Contents
-- [Part I - Terms and Concepts](/src/content/blog/seb-pt1.md)
-- [Part II - Day to Day](#day-to-day)
-- [Part III - The Industry](#the-industry)
-- [Part IV - Resources](#resources)
-- Glossary
+- [Programming vs Developing vs Engineering](#programming-vs-developing-vs-engineering)
+- [Language vs Framework](#language-vs-framework)
+- [Compiled vs Interpreted languages](#compiled-vs-interpreted-languages)
+- [Client vs Server](#client-vs-server)
+- [My Three Golden Rules](#my-three-golden-rules)
 
 
-## Terms and Concepts
 ### Programming vs Developing vs Engineering
 - "Programming" is a tad outdated of a term, but can be used to describe simple coding tasks, perhaps something an entry level / beginner developer would do. *Coding* would be the more appropriate term.
     - ex) Write an `if` statement that determines if the user entered the right key
@@ -84,109 +66,7 @@ What I hoping to accomplish here is introducing and expanding on a large number 
 - Servers
 - Distributed Systems
 
-### The Three Golden Rules
+### My Three Golden Rules
 - Someone has already tried to do what you are trying to do, don't reinvent the wheel!
 - The best solution is usually the simplest - "Don't let Perfect be the enemy of Great"
 - 
-
-
-## Day to Day
-
-### Source Control (SCM)
-- Two main reasons
-    - History
-    - Collaboration
-- Products
-    - Git, BitBucket, SourceSafe, etc
-- (add a new section for key terms and concepts here. too much to get into in an overview)
-
-### Ticketing / "Cards"
-- Ticket Types
-    - Defects, Features, Spikes
-    - Enhancement, Bugs, Internal, Debt, etc 
-- Products
-    - ex) Jira, Azure Dev Ops, Axosoft, Trello, etc
-
-### Testing
-- The most important, most often overlooked, most potential ROI in the engineering world
-- Manual
-- Automated
-    - Unit
-    - Integration
-    - Behavioral
-    - UI/UX
-- So what is QA?
-
-### Teams
-- Engineering
-- Product
-- Marketing
-- Customer Engagement
-- 
-
-
-## The Industry
-
-### Hiring / Finding a role
-
-### Agile
-
-### Companies
-- Microsoft, Amazon, Atlassian, etc
-
-### Personas / Socials
-- Scott Hanselman
-- James Montemagno
-- Gergely Orosz
-
-
-## Resources
-
-### Training
-- Youtube
-    - [Tim Corey](https://www.youtube.com/@IAmTimCorey), [Kudvenkat](https://www.youtube.com/@Csharp-video-tutorialsBlogspot), [DotNetMastery](https://www.youtube.com/@DotNetMastery)
-- Coding
-    - Leetcode, Neetcode, CodeWars
-    - Framework specific
-        - Astro Playground
-    - https://spacetraders.io/
-
-### Books / Manuals
-- Clean Code
-
-### Podcasts
-- Hanselminutes
-- Changelog
-
-### Newsletters
-- Level Up Engineering
-- Ryan Peterman
-- Katia Gilligan
-
-
-## Technical
-
-### Technical "Debt" what it is and isn't
-
-### Networking and HTTP
-- Tools
-    - Postman
-
-### Data types
-
-### OO Principles
-
-### Logging / Observability
-
-
-## Opportunities
-
-- Web Sites
-    - Personal site ex) your-name.dev
-    - Shared use site ex) CORE Classic Raid sign ups
-- Open Source / Community
-    - Game Mods
-        - WoW, Minecraft, etc
-    -  
-- Streaming
-    - StreamBot streamer.bot
