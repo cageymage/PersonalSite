@@ -4,7 +4,6 @@ description: 'Software Engineering Basics'
 pubDate: 'May 08 2024'
 updatedDate: 'June 23 2024'
 heroImage: '/se-basics-blog.jpg'
-layout: 'Software-engineering-basics-intro'
 ---
 
 Ever wondered what it was like to develop software professionally? Maybe you took a college course or two, or dabbled at home in the ever increasing availability and proliferation of programming languages. Or maybe you are here because you've done nothing, and are just very interested! 
