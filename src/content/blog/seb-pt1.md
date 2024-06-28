@@ -2,7 +2,7 @@
 title: 'SEB Part I - Terms and Concepts'
 description: 'Software Engineering Basics Part I'
 pubDate: 'May 10 2024'
-updatedDate: 'May 10 2024'
+updatedDate: 'June 1 2024'
 heroImage: '/se-basics-blog.jpg'
 ---
 
@@ -12,6 +12,8 @@ heroImage: '/se-basics-blog.jpg'
 - [Client vs Server](#client-vs-server)
 - [My Three Golden Rules](#my-three-golden-rules)
 
+WIP
+- [ ] finish filling out this post (client v server, 3 golden rules)
 
 ### Programming vs Developing vs Engineering
 - "Programming" is a tad outdated of a term, but can be used to describe simple coding tasks, perhaps something an entry level / beginner developer would do. *Coding* would be the more appropriate term.
