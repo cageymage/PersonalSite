@@ -7,6 +7,7 @@ heroImage: '/se-basics-blog.jpg'
 ---
 
 - [Opportunities](#opportunities)
+    - [Blogs](#blogs)
     - [Books / Manuals](#books--manuals)
     - [Podcasts](#podcasts)
     - [Newsletters](#newsletters)
@@ -33,6 +34,9 @@ WIP
         - WoW, Minecraft, etc
 - Streaming
     - StreamBot streamer.bot
+
+### Blogs
+https://charity.wtf/ 
 
 ### Books / Manuals
 - Clean Code

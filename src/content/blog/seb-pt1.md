@@ -70,5 +70,5 @@ WIP
 
 ### My Three Golden Rules
 - Someone has already tried to do what you are trying to do, don't reinvent the wheel!
-- The best solution is usually the simplest - "Don't let Perfect be the enemy of Great"
-- 
+- The best solution is usually the simplest - don't pre-optimize!
+- You _cannot_ solve every problem, all the time. It's more important to move forward than it is to find the absolute perfect solution that may not exist! "Don't let Perfect be the enemy of Great"
