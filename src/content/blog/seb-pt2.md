@@ -2,7 +2,6 @@
 title: 'SEB Part II - Day To Day'
 description: 'Software Engineering Basics Part II'
 pubDate: 'June 10 2024'
-updatedDate: 'June 30 2024'
 heroImage: '/se-basics-blog.jpg'
 ---
 

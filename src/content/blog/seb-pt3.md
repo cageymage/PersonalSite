@@ -2,7 +2,6 @@
 title: 'SEB Part III - The Industry'
 description: 'Software Engineering Basics Part III'
 pubDate: 'June 11 2024'
-updatedDate: 'July 30 2024'
 heroImage: '/se-basics-blog.jpg'
 ---
 
