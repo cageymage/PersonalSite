@@ -8,7 +8,9 @@ heroImage: '/otto-copilot.webp'
 
 ## "... And don't call me Copilot"
 
-## Disclaimer
+<br/>
+
+### Disclaimer
 I am not an "AI guy". I am writing this for myself, and maybe other senior devs out there who may be looking to understand some of the basics of AI code gen using copilot. Please, miss me with any "why didn't you talk about X", "pffft, copilot?! how are you not vibing an entire project?" or "wut a noob". Believe me, I know... I'm the one who has to live with myself! I get it!
 
 ### Inspiration
