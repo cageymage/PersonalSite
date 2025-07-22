@@ -40,5 +40,6 @@ WIP
 ### Personas / Socials
 - Gergely Orosz
 - Douglas Crockford
+- Kent Beck
 - Scott Hanselman
 - James Montemagno

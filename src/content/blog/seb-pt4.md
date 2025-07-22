@@ -39,12 +39,13 @@ https://charity.wtf/
 
 ### Books / Manuals
 - Clean Code
+- The Software Engingeer's Guidebook
 
 ### Podcasts
 - Hanselminutes
+- Pragmatic Engineer
 - Changelog
 
 ### Newsletters
 - Level Up Engineering
 - Ryan Peterman
-- Katia Gilligan

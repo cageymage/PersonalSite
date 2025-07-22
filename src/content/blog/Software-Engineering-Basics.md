@@ -17,7 +17,7 @@ What I hoping to accomplish here is introducing and expanding on a large number 
 ## TODO List
 - [X] Throw this page into a github repo
 - [X] Split into multi part series
-- [ ] Give a head's up to discord Dev-Watercooler
+- [X] Give a head's up to discord Dev-Watercooler
 - [X] Ideas down for some more blogs
 - [ ] Finish blog content
     - [X] part 1
