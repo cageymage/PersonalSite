@@ -2,6 +2,8 @@
 title: 'SEB Part V - Going A Bit Deeper'
 description: 'Software Engineering Basics Part V'
 pubDate: 'June 13 2024'
+subject: 'Software Engineering Basics'
+order: 5
 heroImage: '/se-basics-blog.jpg'
 ---
 

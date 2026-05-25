@@ -3,6 +3,8 @@ title: 'SEB Part I - Terms and Concepts'
 description: 'Software Engineering Basics Part I'
 pubDate: 'May 10 2024'
 updatedDate: 'June 1 2024'
+subject: 'Software Engineering Basics'
+order: 1
 heroImage: '/se-basics-blog.jpg'
 ---
 

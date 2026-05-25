@@ -3,6 +3,7 @@ title: 'Instructing Copilot'
 description: "... And don't call me Copilot"
 pubDate: 'July 12 2025'
 updatedDate: 'July 12 2025'
+subject: 'Tools & Workflow'
 heroImage: '/otto-copilot.webp'
 ---
 

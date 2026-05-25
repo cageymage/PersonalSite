@@ -3,6 +3,8 @@ title: 'Software Engineering (and maybe not-so) Basics'
 description: 'Software Engineering Basics'
 pubDate: 'May 08 2024'
 updatedDate: 'June 23 2024'
+subject: 'Software Engineering Basics'
+order: 0
 heroImage: '/se-basics-blog.jpg'
 ---
 

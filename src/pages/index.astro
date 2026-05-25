@@ -20,7 +20,51 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			<p>
 				I built this site with the <a href="https://astro.build/">Astro</a> toolkit, and will really recommend the product and community. The <a href="https://docs.astro.build/en/getting-started/">docs</a> are a thing of beauty, and were extremly helpful in getting this stood up (there will definitely be a blog on this later). Astro is partnered with Netlify, where this is hosted. Shoutout to the ease there as well!
 			</p>
+
+			<section class="changelog">
+				<h2>Site Changelog</h2>
+
+				<div class="changelog-entry">
+					<h3 class="changelog-date">May 25, 2025</h3>
+					<ul>
+						<li>Updated Astro from v2.x to v6</li>
+						<li>Grouped blogs by category and enabled sorting preference</li>
+						<li>Various blog UI tweaks</li>
+					</ul>
+				</div>
+			</section>
 		</main>
+
+		<style>
+			.changelog {
+				margin-top: 2.5rem;
+				border-top: 1px solid rgb(var(--gray-light));
+				padding-top: 1.5rem;
+			}
+			.changelog h2 {
+				font-size: 1.4rem;
+				margin-bottom: 1.25rem;
+			}
+			.changelog-entry {
+				margin-bottom: 1.5rem;
+				padding-left: 1rem;
+				border-left: 3px solid var(--accent);
+			}
+			.changelog-date {
+				font-size: 1rem;
+				font-weight: 700;
+				margin: 0 0 0.4rem 0;
+				color: rgb(var(--gray-dark));
+			}
+			.changelog-entry ul {
+				margin: 0;
+				padding-left: 1.25rem;
+			}
+			.changelog-entry li {
+				color: rgb(var(--gray-dark));
+				line-height: 1.6;
+			}
+		</style>
 		<Footer />
 	</body>
 </html>

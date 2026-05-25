@@ -2,6 +2,8 @@
 title: 'SEB Part IV - Resources'
 description: 'Software Engineering Basics Part IV'
 pubDate: 'June 12 2024'
+subject: 'Software Engineering Basics'
+order: 4
 heroImage: '/se-basics-blog.jpg'
 ---
 

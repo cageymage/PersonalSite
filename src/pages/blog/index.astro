@@ -3,12 +3,51 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import { normalizeSubject, slugifySubject } from '../../lib/blog-utils';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => (b.data.updatedDate?.valueOf() ?? 0) - (a.data.updatedDate?.valueOf() ?? 0)
-);
+const posts = await getCollection('blog');
+
+type PostWithMeta = CollectionEntry<'blog'> & { slug: string; subject: string };
+
+function sortByUpdated(a: PostWithMeta, b: PostWithMeta) {
+	const aDate = (a.data.updatedDate ?? a.data.pubDate).valueOf();
+	const bDate = (b.data.updatedDate ?? b.data.pubDate).valueOf();
+	return bDate - aDate;
+}
+
+function sortWithinGroup(a: PostWithMeta, b: PostWithMeta) {
+	const aOrder = a.data.order;
+	const bOrder = b.data.order;
+	if (aOrder !== undefined && bOrder !== undefined) return aOrder - bOrder;
+	if (aOrder !== undefined) return -1;
+	if (bOrder !== undefined) return 1;
+	return sortByUpdated(a, b);
+}
+
+const allPosts = posts.map((post) => ({
+	...post,
+	slug: post.id.replace(/\.mdx?$/, ''),
+	subject: normalizeSubject(post.data.subject),
+}));
+
+const groupedPosts = Array.from(
+	allPosts.reduce((map, post) => {
+		const subject = post.subject;
+		const group = map.get(subject) ?? [];
+		group.push(post);
+		map.set(subject, group);
+		return map;
+	}, new Map<string, PostWithMeta[]>())
+)
+	.map(([subject, group]) => ({
+		subject,
+		posts: group.sort(sortWithinGroup),
+	}))
+	.sort((a, b) => a.subject.localeCompare(b.subject));
+
+const updatedPosts = [...allPosts].sort(sortByUpdated);
 ---
 
 <!doctype html>
@@ -19,68 +58,106 @@ const posts = (await getCollection('blog')).sort(
 			main {
 				width: 960px;
 			}
-			ul {
+			.view-toggle {
 				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
+				gap: 0;
+				margin-bottom: 2rem;
+				border: 2px solid var(--accent);
+				border-radius: 999px;
+				width: fit-content;
+				overflow: hidden;
+			}
+			.view-toggle a {
+				display: flex;
+				align-items: center;
+				gap: 0.4rem;
+				padding: 0.5rem 1.25rem;
+				text-decoration: none;
+				color: var(--accent);
+				background: transparent;
+				font-weight: 600;
+				transition: background 0.15s ease, color 0.15s ease;
+			}
+			.view-toggle a.active {
+				background: var(--accent);
+				color: #fff;
+			}
+			.view-toggle a:hover:not(.active) {
+				background: rgb(var(--gray-light));
+			}
+			.subject-group {
+				margin-bottom: 2.5rem;
+			}
+			.subject-heading {
+				margin: 0 0 1rem 0;
+				font-size: 1.6rem;
+				font-weight: 700;
+				border-bottom: 2px solid var(--accent);
+				padding-bottom: 0.4rem;
+			}
+			.subject-heading a {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				text-decoration: none;
+				color: rgb(var(--black));
+			}
+			.subject-heading a:hover {
+				color: var(--accent);
+			}
+			.post-list {
+				list-style: none;
 				margin: 0;
 				padding: 0;
+				display: grid;
+				gap: 1rem;
 			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
+			.post-card {
+				padding: 1rem;
+				border: 1px solid rgba(var(--black), 0.1);
 				border-radius: 12px;
 			}
-			ul li a {
-				display: block;
+			.post-card > a {
+				display: flex;
+				gap: 1rem;
+				align-items: flex-start;
+				text-decoration: none;
+				color: inherit;
 			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
+			.post-card-text {
+				flex: 1;
+				min-width: 0;
 			}
-			.date {
-				margin: 0;
+			.post-card h4 {
+				margin: 0 0 0.35rem 0;
+			}
+			.post-card p {
+				margin: 0.4rem 0 0;
+			}
+			.post-thumb {
+				width: 88px;
+				height: 88px;
+				object-fit: cover;
+				border-radius: 8px;
+				flex-shrink: 0;
+			}
+			.post-meta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem 1rem;
 				color: rgb(var(--gray));
+				font-size: 0.875rem;
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
+			#view-updated {
+				display: none;
 			}
 			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
+				main {
+					width: calc(100% - 2em);
 				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
+				.post-thumb {
+					width: 64px;
+					height: 64px;
 				}
 			}
 		</style>
@@ -89,24 +166,96 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<div class="date" style="display:flex;justify-content:space-between;">
-										<FormattedDate date={post.data.pubDate} />
-                                        <div>Updated:<FormattedDate date={post.data.updatedDate ? post.data.updatedDate : post.data.pubDate} /></div>
+				<div class="view-toggle">
+					<a id="btn-subject" class="active" href="/blog?view=subject">
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+						</svg>
+						Subject
+					</a>
+					<a id="btn-updated" href="/blog?view=updated">
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+						</svg>
+						Updated
+					</a>
+				</div>
+
+				<div id="view-subject">
+					{groupedPosts.map((group) => {
+						const isMulti = group.posts.length > 1;
+						const groupLink = isMulti
+							? `/blog/subject/${slugifySubject(group.subject)}/`
+							: `/blog/${group.posts[0].slug}/`;
+						return (
+							<section class="subject-group">
+								<h2 class="subject-heading">
+									<a href={groupLink}>
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+											<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+											<line x1="7" y1="7" x2="7.01" y2="7"/>
+										</svg>
+										{group.subject}
+										{isMulti ? ` (${group.posts.length})` : ''}
+									</a>
+								</h2>
+								<ul class="post-list">
+									{group.posts.map((post) => (
+										<li class="post-card">
+											<a href={`/blog/${post.slug}/`}>
+												<div class="post-card-text">
+													<h4>{post.data.title}</h4>
+													<div class="post-meta">
+														<span>{post.subject}</span>
+														<span><FormattedDate date={post.data.updatedDate ?? post.data.pubDate} /></span>
+													</div>
+													<p>{post.data.description}</p>
+												</div>
+												{post.data.heroImage && (
+													<img class="post-thumb" src={post.data.heroImage} alt="" />
+												)}
+											</a>
+										</li>
+									))}
+								</ul>
+							</section>
+						);
+					})}
+				</div>
+
+				<ul id="view-updated" class="post-list">
+					{updatedPosts.map((post) => (
+						<li class="post-card">
+							<a href={`/blog/${post.slug}/`}>
+								<div class="post-card-text">
+									<h4>{post.data.title}</h4>
+									<div class="post-meta">
+										<span>{post.subject}</span>
+										<span><FormattedDate date={post.data.updatedDate ?? post.data.pubDate} /></span>
 									</div>
-								</a>
-							</li>
-						))
-					}
+									<p>{post.data.description}</p>
+								</div>
+								{post.data.heroImage && (
+									<img class="post-thumb" src={post.data.heroImage} alt="" />
+								)}
+							</a>
+						</li>
+					))}
 				</ul>
 			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<script>
+	const params = new URLSearchParams(location.search);
+	const view = params.get('view') ?? 'subject';
+
+	if (view === 'updated') {
+		document.getElementById('view-subject')!.style.display = 'none';
+		document.getElementById('view-updated')!.style.display = 'grid';
+		document.getElementById('btn-subject')!.classList.remove('active');
+		document.getElementById('btn-updated')!.classList.add('active');
+	}
+</script>

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx astro *)",
+      "Bash(npm list *)",
+      "Bash(npm install *)",
+      "Bash(not exist *)"
+    ]
+  }
+}
