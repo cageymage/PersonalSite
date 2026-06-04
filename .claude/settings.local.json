@@ -5,7 +5,11 @@
       "Bash(npm list *)",
       "Bash(npm install *)",
       "Bash(not exist *)",
-      "PowerShell(Get-ChildItem -Path c:\\\\dev\\\\PersonalSite -Directory | ForEach-Object { $_.Name })"
+      "PowerShell(Get-ChildItem -Path c:\\\\dev\\\\PersonalSite -Directory | ForEach-Object { $_.Name })",
+      "Bash(Get-ChildItem -Path \"c:\\\\dev\\\\PersonalSite\" -Force)",
+      "Bash(Select-Object Name, Mode)",
+      "Bash(xargs ls -la)",
+      "Bash(chmod +x \"c:/dev/PersonalSite/.git/hooks/pre-push\")"
     ]
   }
 }
