@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Recs"
+	description="Things I recommend"
+	pubDate={new Date('May 25 2026')}>
+
+	<div class="rec-section">
+		<h2>TV</h2>
+		<h4>Animated</h4>
+		<ul>
+			<li>The Simpsons (seasons 1–12)</li>
+			<li>King of the Hill</li>
+			<li>Futurama</li>
+			<li>Deathnote</li>
+			<li>Attack on Titan</li>
+			<li>Scavengers Reign</li>
+		</ul>
+
+		<h4>Live Action</h4>
+		<ul>
+			<li>Seinfeld</li>
+			<li>The Expanse</li>
+			<li>It's Always In Philadelphia</li>
+			<li>Curb Your Enthusiasm</li>
+			<li>Breaking Bad</li>
+			<li>Game of Thrones</li>
+		</ul>
+	</div>
+
+	<div class="rec-section">
+		<h2>Books</h2>
+		<h4>Fiction</h4>
+		<ul>
+			<li>"Jurassic Park" by Michael Crichton</li>
+			<li>"Sphere" by Michael Crichton</li>
+			<li>"Prey" by Michael Crichton</li>
+			<li>"The Cleric Quintet" by R.A. Salvatore</li>
+			<li>"Children of Time" by Adrian Tchaikovsky (and the rest of the series)</li>
+			<li>"The Gunslinger" by Stephen King (and the rest of the Dark Tower series)</li>
+			<li>"The Last Wish" by Andrzej Sapkowski (and the rest of the Witcher series)</li>
+			<li>"Neuromancer" by William Gibson</li>
+		</ul>
+
+		<h4>Non Fiction</h4>
+		<ul>
+			<li>"Good Game, No Rematch" by Mike Drucker</li>
+			<li>"The Software Engineer's Guidebook" by Gergely Orosz</li>
+			<li>"Tidy First?" by Kent Beck</li>
+			<li>"The Nineties" by Chuck Klosterman</li>
+			<li>"Play Nice" by Jason Schreier</li>
+		</ul>
+	</div>
+
+	<div class="rec-section">
+		<h2>Video Games</h2>
+		<h4>Narrative Driven</h4>
+		<ul>
+			<li>Mass Effect 2</li>
+			<li>Baldur's Gate 3</li>
+			<li>Final Fantasy VI / III</li>
+			<li>Final Fantasy VII</li>
+			<li>Chrono Trigger</li>
+			<li>The Witcher 3: Wild Hunt</li>
+			<li>Knights of the Old Republic I and II</li>
+			<li>Fallout 1, 2, 3, and New Vegas</li>
+			<li>Disco Elysium</li>
+		</ul>
+
+		<h4>Action</h4>
+		<ul>
+			<li>Diablo (entire series)</li>
+			<li>Last Epoch</li>
+			<li>Death Must Die</li>
+			<li>Brotato</li>
+			<li>Halo I</li>
+		</ul>
+
+		<h4>Strategy</h4>
+		<ul>
+			<li>Civilization (entire series)</li>
+			<li>XCOM 2</li>
+			<li>Frostpunk</li>
+			<li>Thronefall</li>
+			<li>They Are Billions</li>
+			<li>Endzone 1 and 2</li>
+			<li>Banished</li>
+			<li>Stranded: Alien Dawn</li>
+			<li>Against the Storm</li>
+			<li>Starcraft (entire series)</li>
+		</ul>
+
+		<h4>Multiplayer</h4>
+		<ul>
+			<li>World of Warcraft</li>
+			<li>Hearthstone</li>
+			<li>Marvel Snap</li>
+			<li>Thronefall</li>
+			<li>They Are Billions</li>
+			<li>Endzone 1 and 2</li>
+			<li>Banished</li>
+			<li>Stranded: Alien Dawn</li>
+			<li>Against the Storm</li>
+		</ul>
+	</div>
+
+	<div class="rec-section">
+		<h2>Music</h2>
+		<p class="rec-note">Start with the listed album — it might not be their best but it best encompasses their sound.</p>
+		<ul>
+			<li>Bad Religion (No Control)</li>
+			<li>NOFX (The War on Errorism)</li>
+			<li>Dream Theater (Octavarium)</li>
+			<li>The Offspring (Ixnay on the Hombre)</li>
+			<li>Red Hot Chili Peppers (Stadium Arcadium)</li>
+			<li>Muse (Black Holes and Revelations)</li>
+			<li>Metallica (And Justice for All)</li>
+			<li>AFI (Sing the Sorrow)</li>
+			<li>My Chemical Romance (Three Cheers for Sweet Revenge)</li>
+			<li>Thrice (The Artist in the Ambulance)</li>
+			<li>Boysetsfire (Tomorrow Come Today)</li>
+			<li>Rise Against (Siren Song of the Counter Culture)</li>
+			<li>God Is An Astronaut (Helios / Erebus)</li>
+			<li>GUNSHIP (Unicorn)</li>
+			<li>Incubus (S.C.I.E.N.C.E.)</li>
+			<li>Kamelot (Ghost Opera)</li>
+			<li>Strung Out (Exile in Obliviion)</li>
+			<li>Liquid Tension Experiment (Liquid Tension Experiment 2)</li>
+			<li>System of a Down (Steal This Album!)</li>
+			<li>TOOL (Lateralus)</li>
+		</ul>
+	</div>
+
+</Layout>
+
+<style>
+	.rec-section {
+		background: rgba(var(--gray-light), 50%);
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 8px;
+		padding: 0.25em 1.5em 0.75em;
+		margin-bottom: 1.5em;
+	}
+	.rec-note {
+		font-style: italic;
+		color: rgb(var(--gray));
+		font-size: 0.85em;
+		margin-top: 0;
+	}
+</style>

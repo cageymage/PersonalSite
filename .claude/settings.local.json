@@ -4,7 +4,8 @@
       "Bash(npx astro *)",
       "Bash(npm list *)",
       "Bash(npm install *)",
-      "Bash(not exist *)"
+      "Bash(not exist *)",
+      "PowerShell(Get-ChildItem -Path c:\\\\dev\\\\PersonalSite -Directory | ForEach-Object { $_.Name })"
     ]
   }
 }
