@@ -5,7 +5,7 @@ pubDate: 'May 10 2024'
 updatedDate: 'June 1 2024'
 subject: 'Software Engineering Basics'
 order: 1
-heroImage: '/se-basics-blog.jpg'
+heroImage: '/blog-images/se-basics-blog.jpg'
 ---
 
 - [Programming vs Developing vs Engineering](#programming-vs-developing-vs-engineering)

@@ -12,7 +12,12 @@
       "Bash(chmod +x \"c:/dev/PersonalSite/.git/hooks/pre-push\")",
       "PowerShell(Get-ChildItem Env: | Where-Object { $_.Name -match 'ANTHROPIC|CLAUDE' } | Format-List)",
       "PowerShell(Write-Output \"=== does the exe exist ===\"; Test-Path \"C:\\\\Users\\\\SR116\\\\.local\\\\bin\\\\claude.exe\"; Write-Output \"=== full PATH raw ===\"; $env:PATH; Write-Output \"=== User PATH \\(registry\\) ===\"; [Environment]::GetEnvironmentVariable\\(\"PATH\",\"User\"\\); Write-Output \"=== Machine PATH \\(registry\\) ===\"; [Environment]::GetEnvironmentVariable\\(\"PATH\",\"Machine\"\\))",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(git mv *)",
+      "Bash(npm run *)",
+      "Bash(netstat -ano)",
+      "Bash(curl -s -o /dev/null -w \"GET /blog-images/latte-larrys.jpg -> %{http_code}\\\\n\" http://localhost:4321/blog-images/latte-larrys.jpg)",
+      "Bash(curl -s http://localhost:4321/blog/)"
     ]
   }
 }

@@ -104,6 +104,24 @@ img {
 	height: auto;
 	border-radius: 8px;
 }
+.image-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: 10px;
+}
+.image-container img {
+	width: 100%;
+	height: auto;
+}
+.image-single {
+	display: flex;
+	justify-content: center;
+}
+.image-single img {
+	width: 450px;
+	height: 650px;
+}
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
@@ -132,6 +150,14 @@ hr {
 	}
 	main {
 		padding: 1em;
+	}
+	.image-container {
+		grid-template-columns: 1fr;
+	}
+	.image-single img {
+		width: 100%;
+		height: auto;
+		max-width: 450px;
 	}
 }
 

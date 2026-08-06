@@ -5,7 +5,7 @@ pubDate: 'August 04 2026'
 updatedDate: 'August 04 2026'
 subject: 'Hardware and Hobbies'
 order: 0
-heroImage: '/latte-larrys.jpg'
+heroImage: '/blog-images/latte-larrys.jpg'
 ---
 
 I spent much of my life without HBO. Even after I stabilized finacially in the late 20s, it was still too expensive. Then HBO _finally_ created their streaming service that wasn't tied to some archaic cable plan, rebranded to the confusingly named "Max", re-rebranded back to the appropriately named "HBO Max", and landed a deal with Hulu and Disney+. At this point I realized it was time and got the bundle, and while basking in the 30 years of amazing HBO content (folks, the backlog really is that great -- Mr Show, The Wire, Deadwood, GoT, etc) last year, I finally realized I had over 20 years of Curb Your Enthusiam to watch. I finished a watch of the entire series from start to finish over the last nine months or so, watching a few episodes every week. This show is incredible, its like Seinfeld never stopped and started cursing. Since I came so late, I also didn't need to wait the interminable years between the seasons (especially the later ones). Big recommend on this show, if you ever enjoyed Seinfeld, Its Always Sunny, or thought Michael J Fox deliberatley spilt a soda on you.

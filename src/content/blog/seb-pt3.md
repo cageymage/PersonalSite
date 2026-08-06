@@ -4,7 +4,7 @@ description: 'Software Engineering Basics Part III'
 pubDate: 'June 11 2024'
 subject: 'Software Engineering Basics'
 order: 3
-heroImage: '/se-basics-blog.jpg'
+heroImage: '/blog-images/se-basics-blog.jpg'
 ---
 
 - [Agile](#agile)

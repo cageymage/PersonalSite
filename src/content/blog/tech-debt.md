@@ -4,7 +4,7 @@ description: 'What exactly IS Technical Debt?'
 pubDate: 'Jan 22 2018'
 updatedDate: 'October 10 2024'
 subject: 'Software Engineering Basics'
-heroImage: '/cavemen-debt.png'
+heroImage: '/blog-images/cavemen-debt.png'
 ---
 
 - [... 'technical' debt?](#-technical-debt)
@@ -19,7 +19,7 @@ One of the most confusing things I came across in my early and mid years as an e
 - "We can't add _another_ pattern to this project. This is how we get debt."
 
 None of that really made sense to me. Sure, 'legacy' code that you (did or didn't) write is always derisively spoken of. That doesn't make it **debt** though. _Debt_ is something borrowed, owed, or obligated to. It also typically creates more of itself (exponentially). I went on a crusade to actually define what it _actually_ was. 
-<p style="text-align:center"><img src="/that-word.gif" /></p>
+<p style="text-align:center"><img src="/blog-images/that-word.gif" /></p>
 
 "Deliberate" kept coming up in my searching and reading. I started to see a pattern forming. Among most of the 'accepted' definitions (read: highly commented on blogs, trusted industry thoughts) this was the most common adjective. Makes sense right? Predatory lending aside (a whole other topic I'd love to wax philosophical on...), debt is _usually_ accrued knowingly. Very few people can afford houses outright, but everyone needs a roof over their head (which is a topic for yet another day), so folks take on debt to pay back over time, or, they end up renting a space which can _feel_ like debt. The point is: this was an intentional or deliberate borrow. 
 

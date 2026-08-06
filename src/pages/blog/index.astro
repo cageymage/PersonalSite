@@ -148,7 +148,7 @@ const updatedPosts = [...allPosts].sort(sortByUpdated);
 				color: rgb(var(--gray));
 				font-size: 0.875rem;
 			}
-			#view-updated {
+			#view-subject {
 				display: none;
 			}
 			@media (max-width: 720px) {
@@ -167,17 +167,17 @@ const updatedPosts = [...allPosts].sort(sortByUpdated);
 		<main>
 			<section>
 				<div class="view-toggle">
-					<a id="btn-subject" class="active" href="/blog?view=subject">
-						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-						</svg>
-						Subject
-					</a>
-					<a id="btn-updated" href="/blog?view=updated">
+					<a id="btn-updated" class="active" href="/blog?view=updated">
 						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
 						</svg>
 						Updated
+					</a>
+					<a id="btn-subject" href="/blog?view=subject">
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+						</svg>
+						Subject
 					</a>
 				</div>
 
@@ -250,12 +250,12 @@ const updatedPosts = [...allPosts].sort(sortByUpdated);
 
 <script>
 	const params = new URLSearchParams(location.search);
-	const view = params.get('view') ?? 'subject';
+	const view = params.get('view') ?? 'updated';
 
-	if (view === 'updated') {
-		document.getElementById('view-subject')!.style.display = 'none';
-		document.getElementById('view-updated')!.style.display = 'grid';
-		document.getElementById('btn-subject')!.classList.remove('active');
-		document.getElementById('btn-updated')!.classList.add('active');
+	if (view === 'subject') {
+		document.getElementById('view-updated')!.style.display = 'none';
+		document.getElementById('view-subject')!.style.display = 'block';
+		document.getElementById('btn-updated')!.classList.remove('active');
+		document.getElementById('btn-subject')!.classList.add('active');
 	}
 </script>
