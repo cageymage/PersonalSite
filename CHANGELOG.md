@@ -3,6 +3,9 @@
 All notable changes to the site are documented here.
 
 ## 2026-08-05
+- Wrote Part 2 and 3 of the Vapor Chamber
+
+## 2026-08-05
 - Wrote Part 2 of the Vapor Chamber
 - refactored image references to specific directories across all blogs
 

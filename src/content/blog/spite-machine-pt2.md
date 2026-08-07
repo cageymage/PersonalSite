@@ -1,8 +1,8 @@
 ---
 title: 'The Vapor Chamber Part 2: The Buildening'
 description: 'Spitefully Building a TV Gaming PC'
-pubDate: 'August 05 2026'
-updatedDate: 'August 05 2026'
+pubDate: 'August 06 2026'
+updatedDate: 'August 06 2026'
 subject: 'Hardware and Hobbies'
 order: 1
 heroImage: '/blog-images/latte-larrys.jpg'
@@ -61,7 +61,7 @@ Most parts purchased from Amazon but the three I linked were particularly specia
   <tr>
     <td>GPU Riser</td>
     <td>LINKUP PCIE 5.0 Riser Cable (White)</td>
-    <td><a href="https://www.amazon.com/dp/B0GWV4CYP9">Amazon Link</a></td>
+    <td><a href="https://www.amazon.com/dp/B0FVH8726P">Amazon Link</a></td>
   </tr>
   <tr>
     <td>Controller</td>
@@ -79,7 +79,7 @@ We find ourselves on a Friday night with the whole weekend ahead of us to assemb
   <img src="/blog-images/vapor-chamber/parts-mobo.JPEG" />
 </div>
 
-Then I got to work. Assembling PCs is easy to me -- I've done it about a dozen times, ever since I learned how to in high school, with Windows ME (can confirm: it sucked ass!). One thing I didn't consider when building a small form factor / ITX machine was that every thing was _tight_. Pulled a fan cable across something hot accidentally and then attached the board? Disassemble. PSU cable get shifted out of place and blocked the GPU from sitting right? Disassemble. It reminds me of this all timer from Parks and Rec:
+Then I got to work. Assembling PCs is easy to me -- I've done it about a dozen times, ever since I learned how to in high school, with Windows ME (can confirm: it sucked ass!). One thing I didn't consider when building a small form factor / ITX machine was that every thing was _tight_. Pulled a fan cable across something hot accidentally and then attached the board? Disassemble. PSU cable get shifted out of place and blocked the GPU from sitting right? Disassemble. Fully attach the PSU? Believe it or not, Disassemble. It reminds me of this all timer from Parks and Rec:
 
 <div class="image-single">
   <img src="/blog-images/vapor-chamber/jail.jpg" />
@@ -116,61 +116,29 @@ Anyways, now I just had to put on the sides and fire it up to see if it worked! 
   <img src="/blog-images/vapor-chamber/cookie-beer-done.JPEG" />
 </div>
 
-### Performance Testing
-All testing done on a Samsung 77in S90C 
-<table border="1">
-  <tr>
-    <th>Setting</th>
-    <th>Resolution</th>
-    <th>Game</th>
-    <th>FPS</th>
-  </tr>
-  <tr>
-    <td>Ultra + Ray Tracing</td>
-    <td>4K</td>
-    <td>Cyberpunk 2077 (in-game benchmark)</td>
-    <td>30-35</td>
-  </tr>
-  <tr>
-    <td>High + Ray Tracing</td>
-    <td>4K</td>
-    <td>Cyberpunk 2077 (in-game benchmark)</td>
-    <td>40-45</td>
-  </tr>
-  <tr>
-    <td>Medium-High</td>
-    <td>4K</td>
-    <td>Cyberpunk 2077 (in-game benchmark)</td>
-    <td>95-100</td>
-  </tr>
-  <tr>
-    <td>Medium</td>
-    <td>4K</td>
-    <td>Cyberpunk 2077 (in-game benchmark)</td>
-    <td>120-130</td>
-  </tr>
-  <tr>
-    <td>Ultra + Ray Tracing</td>
-    <td>2K</td>
-    <td>Cyberpunk 2077 (in-game benchmark)</td>
-    <td>30-35</td>
-  </tr>
-  <tr>
-    <td>High + Ray Tracing</td>
-    <td>2K</td>
-    <td>Cyberpunk 2077 (in-game benchmark)</td>
-    <td>40-45</td>
-  </tr>
-  <tr>
-    <td>Medium-High</td>
-    <td>2K</td>
-    <td>Cyberpunk 2077 (in-game benchmark)</td>
-    <td>95-100</td>
-  </tr>
-  <tr>
-    <td>Medium</td>
-    <td>2K</td>
-    <td>Cyberpunk 2077 (in-game benchmark)</td>
-    <td>120-130</td>
-  </tr>
-</table>
+I tracked down an old monitor and hdmi cable, and hooked everything up to power. Pushed the power on button.... and nothing. No PSU noise, no mobo lights, nothing. Now began the troubleshooting... using claude, I ran through a few of what it called "easy tests". Things like trying to jump the board to life with a screwdriver on the PWR_SW leads (no dice), trying different PSU cables (no dice), and jumping the PSU itself with the "paperclip" trick -- connecting a bent paperclip between the power on and ground nodes on the mobo cable (no dice). Thoroughly frustrated I sat there for a moment just... _looking_ at the PSU... and noticed something I'd never happened across before. The mobo power cable had the normal 24pin side plugged into the mobo, but the PSU side only had 18pin... then I noticed the dangling 8pin connector on the same cable, not plugged in. Apparently, for SFX PSUs (smaller, made for ITX boards), the mobo cable is always split like that to conserve room. Uggggghhhhhh! What a noob! I plugged that in and we were booting into linux.
+
+Speaking of linux, Valve makes it <a href="https://help.steampowered.com/en/faqs/view/65B4-2AA3-5F37-4227" target="_blank" rel="noopener noreferrer">REAL EASY</a> to grab a boot loader for SteamOS. Bring your favorite 16gb+ thumb drive and download the image. The rest of the steps are all laid out in the help article! It's seriously that easy. Here's a pic of my first day win condition:
+
+<div class="image-single">
+  <img src="/blog-images/vapor-chamber/linux-steamos-install.JPEG" />
+</div>
+
+After I got my first boot into SteamOS, I was feeling pretty good about the progress I made, so I called it for the night and played some Hearthstone Battlegrounds, then watched some Mob Psycho 100 and went to bed. 
+
+The next morning I got up early and started putting the sides and top (back) on, and moved it over to the TV to do some testing and connecting the actual controller. I fired it up and it was just a black screen! I hard powered down, tried again. Same thing, all the fans came on, but just booted to a black screen with no indication anything happened (and USB wasn't working either??!). So, I unplugged everything (including the TV), plugged in my nearby mouse, keyboard and the extra monitor from last night, and tried for the life of me to boot into BIOS before steamOS could load. I was able to, somehow! The keyboard and mouse were alive long enough for me to [DEL] key myself into BIOS I guess. So this was "working" in some fashion. I poked around settings like Allow USB to Wake, etc. I had already set the "critical" setting of PCIE Generation from Auto to Gen3 last night (this was recommended by the case manufacturer since the riser they included was a little older). 
+
+Fast forward hours later, and my symptoms were all over the place -- I had reset CMOS, taken all the components apart and put them back together, used a different HDMI cable... and each time, I either got partially into SteamOS and then it froze, or it wouldn't get there at all and just black screen. This was getting REAL frustrating. No consistent symptoms == no direct smoking gun. AI was no help and had me on way too many goose chases. We even chased down non-SteamDeck AMD / SteamOS possible issues -- which apparently was a thing about a year ago! Then I decided to try plugging the GPU directly into the mobo... and to my awe -- it worked and was stable! Huzzah! So what the hell? I plugged the riser back in, and plugged the GPU back into that, and then tried it again... and it borked. So, at least we now had some kind of cause: that damn riser cable. So, I shut everything down again, and went to BIOS. On a hunch I went back to that PCIE setting and to my surprise -- was set back to "Auto"! Somehow during the time from the previous night to now, it had gotten unset. I set it back to Gen3 and fired the thing back up -- success!! I was elated. Ok fine, it mysteriously got unset, ok. Whatever, it was working. I put everything back together yet again, and fired it up... to a black screen... ARGH! Hard shut off, keyboard back in, power back up into BIOS. And look at that... the PCIE setting was unset again! So I did some digging and it appears some mobos don't like it when components are unplugged and plugged back in, and can reset settings like that. Since I had done that a dozen times, maybe that was the case? Or maybe it was when I tried clearing CMOS? I don't know, and probably never will. I found a modern <a href="https://www.amazon.com/dp/B0FVH8726P" target="_blank" rel="noopener noreferrer">PCIE 5.0</a> cable on Amazon and it was there later that day. How awesome is slave labor and never ending consumption??!
+
+Once I got the cable in (it was also 5cm longer, which gave a little less tension) and reset the PCIE setting back to "Auto" (since this cable was 5.0), we were back in business. Everything finally stabilized. Who knew that GPU drivers crashing could cause complete system unresponsiveness or even boot failure? Now it was ready to show off -- I plugged in my new controller and paired it, my partner helped out with major cable management / kitten proofing behind the TV, and we were ready to play some... I don't really know. But it looked effing cool, that's for sure >:)
+
+<div class="image-container">
+  <img src="/blog-images/vapor-chamber/shelf-day-done.JPEG" />
+  <img src="/blog-images/vapor-chamber/shelf-night-controller.JPEG" />
+  <img src="/blog-images/vapor-chamber/shelf-night-controller2.JPEG" />
+  <img src="/blog-images/vapor-chamber/shelf-night-right-side.JPEG" />
+</div>
+</br>
+
+### Next 
+- [Part II - The Performance of a life time](/blog/spite-machine-pt3)
