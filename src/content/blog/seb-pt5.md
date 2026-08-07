@@ -4,7 +4,7 @@ description: 'Software Engineering Basics Part V'
 pubDate: 'June 13 2024'
 subject: 'Software Engineering Basics'
 order: 5
-heroImage: '/se-basics-blog.jpg'
+heroImage: '/blog-images/se-basics-blog.jpg'
 ---
 
 - [Training](#training)

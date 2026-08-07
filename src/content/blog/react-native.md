@@ -4,7 +4,7 @@ description: 'Just what we need, another React-ion'
 pubDate: 'Feb 12 2025'
 updatedDate: 'Feb 12 2025'
 subject: 'Front End Frameworks'
-heroImage: '/react-native-logo.png'
+heroImage: '/blog-images/react-native-logo.png'
 ---
 
 # WIP

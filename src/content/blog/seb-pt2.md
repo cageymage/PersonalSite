@@ -4,7 +4,7 @@ description: 'Software Engineering Basics Part II'
 pubDate: 'June 10 2024'
 subject: 'Software Engineering Basics'
 order: 2
-heroImage: '/se-basics-blog.jpg'
+heroImage: '/blog-images/se-basics-blog.jpg'
 ---
 
 - [Source Control (SCM)](#source-control-scm)

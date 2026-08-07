@@ -4,7 +4,7 @@ description: 'Back in my day, Angular had a JS in it!'
 pubDate: 'Jun 25 2024'
 updatedDate: 'Jun 28 2024'
 subject: 'Front End Frameworks'
-heroImage: '/angularjs-angular.jpg'
+heroImage: '/blog-images/angularjs-angular.jpg'
 ---
 
 ## "Back in my day, Angular had a JS in it!"
