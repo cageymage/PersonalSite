@@ -141,4 +141,4 @@ Once I got the cable in (it was also 5cm longer, which gave a little less tensio
 </br>
 
 ### Next 
-- [Part II - The Performance of a life time](/blog/spite-machine-pt3)
+- [Part III - The Performance of a life time](/blog/spite-machine-pt3)

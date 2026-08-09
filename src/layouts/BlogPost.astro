@@ -81,5 +81,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			</article>
 		</main>
 		<Footer />
+		<script>
+			document.querySelectorAll('pre.mermaid').forEach((el) => {
+				el.setAttribute('title', 'Diagram rendered with Mermaid.js (mermaid.js.org)');
+			});
+		</script>
 	</body>
 </html>
