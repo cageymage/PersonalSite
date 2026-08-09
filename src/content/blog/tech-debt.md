@@ -4,6 +4,7 @@ description: 'What exactly IS Technical Debt?'
 pubDate: 'Jan 22 2018'
 updatedDate: 'October 10 2024'
 subject: 'Software Engineering Basics'
+order: 7
 heroImage: '/blog-images/cavemen-debt.png'
 ---
 

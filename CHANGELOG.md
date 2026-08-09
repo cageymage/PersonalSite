@@ -2,6 +2,13 @@
 
 All notable changes to the site are documented here.
 
+## 2026-08-08
+- Wrote and finished Git Over Here
+- Added mermaid support for blog posts
+
+## 2026-08-06
+- Finished part 3 of the Vapor Chamber
+
 ## 2026-08-05
 - Wrote Part 2 and 3 of the Vapor Chamber
 

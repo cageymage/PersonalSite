@@ -122,6 +122,20 @@ img {
 	width: 450px;
 	height: 650px;
 }
+.image-single-wide {
+	display: flex;
+	justify-content: center;
+}
+.image-single-wide img {
+	width: 650px;
+	height: 450px;
+}
+.inline-icon {
+	height: 1em;
+	width: 1em;
+	vertical-align: middle;
+	display: inline;
+}
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
