@@ -28,8 +28,8 @@ jobs:
 
       - name: Sync Blizzard API credentials to Cloudflare
         run: |
-          echo "${{ secrets.BLIZZARD_CLIENT_ID }}" | npx wrangler secret put BLIZZARD_CLIENT_ID
-          echo "${{ secrets.BLIZZARD_CLIENT_SECRET }}" | npx wrangler secret put BLIZZARD_CLIENT_SECRET
+          echo "${{ secrets.BLIZZARD_CLIENT_ID }}" | npx wrangler secret put BLIZZARD_CLIENT_ID --env production
+          echo "${{ secrets.BLIZZARD_CLIENT_SECRET }}" | npx wrangler secret put BLIZZARD_CLIENT_SECRET --env production
 
       - name: Deploy Worker
-        run: npx wrangler deploy
+        run: npx wrangler deploy --env production

@@ -5,7 +5,7 @@
 	"description": "Standalone Cloudflare Worker exposing live WoW raid boss kill data from the Blizzard API. Deployed independently of the main site.",
 	"scripts": {
 		"dev": "wrangler dev",
-		"deploy": "wrangler deploy",
+		"deploy": "wrangler deploy --env production",
 		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {

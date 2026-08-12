@@ -4,7 +4,12 @@
       "Bash(node -e ' *)",
       "Bash(node check-badges.mjs)",
       "Bash(node check-badges2.mjs)",
-      "PowerShell(Get-CimInstance Win32_Process -Filter \"ProcessId=36256\")"
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"ProcessId=36256\")",
+      "Bash(git -C \"c:/dev/PersonalSite\" remote -v)",
+      "Bash(git -C \"c:/dev/PersonalSite\" ls-files)",
+      "Bash(gh api *)",
+      "PowerShell(gh api repos/cageymage/PersonalSite/pages 2>&1)",
+      "PowerShell(gh api repos/cageymage/PersonalSite/deployments 2>&1)"
     ]
   }
 }
