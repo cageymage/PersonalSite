@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="WoW Raid Kills"
+	description="Raid bosses I've killed in World of Warcraft, by difficulty">
+
+	<p id="wow-status">Loading raid kill data&hellip;</p>
+	<div id="wow-raids"></div>
+
+</Layout>
+
+<script>
+	const apiBase = import.meta.env.PUBLIC_WOW_API_URL as string | undefined;
+	const statusEl = document.getElementById('wow-status')!;
+	const raidsEl = document.getElementById('wow-raids')!;
+
+	const DIFFICULTY_META: Record<string, { label: string; tier: string }> = {
+		lfr: { label: 'LFR', tier: 'lfr' },
+		normal: { label: 'Normal', tier: 'normal' },
+		heroic: { label: 'Heroic', tier: 'heroic' },
+		mythic: { label: 'Mythic', tier: 'mythic' },
+		legacy_10_man: { label: '10-Player', tier: 'normal' },
+		legacy_25_man: { label: '25-Player', tier: 'normal' },
+		legacy_10_man_heroic: { label: '10-Player Heroic', tier: 'heroic' },
+		legacy_25_man_heroic: { label: '25-Player Heroic', tier: 'heroic' },
+	};
+
+	function difficultyMeta(difficulty: string) {
+		return DIFFICULTY_META[difficulty] ?? { label: difficulty, tier: 'normal' };
+	}
+
+	const TIER_RANK: Record<string, number> = { lfr: 0, normal: 1, heroic: 2, mythic: 3 };
+
+	function difficultyRank(difficulty: string) {
+		return TIER_RANK[difficultyMeta(difficulty).tier] ?? 1;
+	}
+
+	type RaidBoss = { name: string; difficulties: string[] };
+	type RaidEntry = { raid: string; bosses: RaidBoss[] };
+	type ExpansionGroup = { expansion: string; raids: RaidEntry[] };
+
+	function renderRaids(expansionGroups: ExpansionGroup[]) {
+		if (expansionGroups.length === 0) {
+			statusEl.textContent = 'No raid kills found.';
+			return;
+		}
+
+		statusEl.remove();
+
+		for (const group of expansionGroups) {
+			const expansionEl = document.createElement('div');
+			expansionEl.className = 'expansion-group';
+
+			const expansionHeading = document.createElement('h2');
+			expansionHeading.className = 'expansion-heading';
+			expansionHeading.textContent = group.expansion;
+			expansionEl.appendChild(expansionHeading);
+
+			for (const raid of group.raids) {
+				const section = document.createElement('div');
+				section.className = 'raid-section';
+
+				const heading = document.createElement('h3');
+				heading.className = 'raid-heading';
+				heading.textContent = raid.raid;
+				section.appendChild(heading);
+
+				const list = document.createElement('ul');
+				list.className = 'boss-list';
+
+				for (const boss of raid.bosses) {
+					const item = document.createElement('li');
+					item.className = 'boss-item';
+
+					const name = document.createElement('span');
+					name.className = 'boss-name';
+					name.textContent = boss.name;
+					item.appendChild(name);
+
+					const badges = document.createElement('span');
+					badges.className = 'difficulty-badges';
+					for (const difficulty of [...boss.difficulties].sort(
+						(a, b) => difficultyRank(a) - difficultyRank(b)
+					)) {
+						const meta = difficultyMeta(difficulty);
+						const badge = document.createElement('span');
+						badge.className = `badge badge-${meta.tier}`;
+						badge.textContent = meta.label;
+						badges.appendChild(badge);
+					}
+					item.appendChild(badges);
+
+					list.appendChild(item);
+				}
+
+				section.appendChild(list);
+				expansionEl.appendChild(section);
+			}
+
+			raidsEl.appendChild(expansionEl);
+		}
+	}
+
+	async function loadRaids() {
+		if (!apiBase) {
+			statusEl.textContent = 'WoW API URL is not configured (PUBLIC_WOW_API_URL).';
+			return;
+		}
+
+		try {
+			const response = await fetch(`${apiBase}/raids`);
+			if (!response.ok) {
+				throw new Error(`Request failed: ${response.status}`);
+			}
+			const expansionGroups = (await response.json()) as ExpansionGroup[];
+			renderRaids(expansionGroups);
+		} catch (err) {
+			statusEl.textContent = 'Could not load raid kill data right now.';
+		}
+	}
+
+	loadRaids();
+</script>
+
+<style is:global>
+	/* This page's content is built client-side via document.createElement
+	   (see the <script> above), so these elements never get Astro's
+	   data-astro-cid-* scoping attribute — scoped <style> would silently
+	   never match them. Scope manually with the #wow-raids ancestor instead. */
+	#wow-raids .expansion-group {
+		margin-bottom: 2.5em;
+	}
+	#wow-raids .expansion-heading {
+		border-bottom: 2px solid var(--accent);
+		padding-bottom: 0.3em;
+		margin-bottom: 1em;
+	}
+	#wow-raids .raid-section {
+		background: rgba(var(--gray-light), 50%);
+		border: 1px solid rgb(var(--gray-light));
+		border-left: 4px solid rgb(var(--gray));
+		border-radius: 8px;
+		padding: 0.25em 1.5em 1em;
+		margin-bottom: 1.5em;
+	}
+	#wow-raids .raid-heading {
+		font-size: 1.1em;
+	}
+	#wow-raids .boss-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.5em;
+	}
+	#wow-raids .boss-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		border-top: 1px solid rgb(var(--gray-light));
+		padding-top: 0.5em;
+	}
+	#wow-raids .boss-item:first-child {
+		border-top: none;
+		padding-top: 0;
+	}
+	#wow-raids .boss-name {
+		font-weight: 500;
+	}
+	#wow-raids .difficulty-badges {
+		display: flex;
+		gap: 0.4em;
+	}
+	#wow-raids .badge {
+		font-size: 0.7em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		padding: 0.25em 0.7em;
+		border-radius: 999px;
+		color: white;
+		white-space: nowrap;
+	}
+	/* Colors follow WoW's own difficulty conventions */
+	#wow-raids .badge-lfr {
+		background: #cc7a1e;
+	}
+	#wow-raids .badge-normal {
+		background: #2f8f3e;
+	}
+	#wow-raids .badge-heroic {
+		background: #a335ee;
+	}
+	#wow-raids .badge-mythic {
+		background: linear-gradient(135deg, #ff4d4d, #b3121f);
+		box-shadow: 0 0 6px rgba(255, 40, 40, 0.55);
+	}
+</style>

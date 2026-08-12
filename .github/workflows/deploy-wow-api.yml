@@ -1,0 +1,35 @@
+name: Deploy wow-api
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wow-api/**'
+      - '.github/workflows/deploy-wow-api.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wow-api
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Sync Blizzard API credentials to Cloudflare
+        run: |
+          echo "${{ secrets.BLIZZARD_CLIENT_ID }}" | npx wrangler secret put BLIZZARD_CLIENT_ID --env production
+          echo "${{ secrets.BLIZZARD_CLIENT_SECRET }}" | npx wrangler secret put BLIZZARD_CLIENT_SECRET --env production
+
+      - name: Deploy Worker
+        run: npx wrangler deploy --env production

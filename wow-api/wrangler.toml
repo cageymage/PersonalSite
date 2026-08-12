@@ -1,0 +1,28 @@
+name = "wow-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+
+# Secrets (never stored here — set via `wrangler secret put`):
+#   BLIZZARD_CLIENT_ID
+#   BLIZZARD_CLIENT_SECRET
+#
+# Vars (safe to keep in plain text, tweak per environment):
+[vars]
+WOW_REGION = "us"
+WOW_REALM_SLUG = "thrall"
+WOW_CHARACTER_NAME = "cageymage"
+ALLOWED_ORIGIN = "http://localhost:4321"
+
+# Production overrides — deployed via `wrangler deploy --env production`.
+# `name` is pinned so the deployed Worker stays "wow-api" (and keeps the same
+# workers.dev URL) instead of Wrangler's default "wow-api-production".
+# Wrangler does not inherit [vars] into named environments, so this block
+# must redefine every var, not just the ones that differ.
+[env.production]
+name = "wow-api"
+
+[env.production.vars]
+WOW_REGION = "us"
+WOW_REALM_SLUG = "thrall"
+WOW_CHARACTER_NAME = "cageymage"
+ALLOWED_ORIGIN = "https://dave-schulze.dev"

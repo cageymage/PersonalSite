@@ -1,0 +1,16 @@
+{
+	"name": "wow-api",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Standalone Cloudflare Worker exposing live WoW raid boss kill data from the Blizzard API. Deployed independently of the main site.",
+	"scripts": {
+		"dev": "wrangler dev",
+		"deploy": "wrangler deploy --env production",
+		"typecheck": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^5.20260804.1",
+		"typescript": "^5.4.3",
+		"wrangler": "^4.0.0"
+	}
+}
