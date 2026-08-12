@@ -9,7 +9,9 @@
       "Bash(git -C \"c:/dev/PersonalSite\" ls-files)",
       "Bash(gh api *)",
       "PowerShell(gh api repos/cageymage/PersonalSite/pages 2>&1)",
-      "PowerShell(gh api repos/cageymage/PersonalSite/deployments 2>&1)"
+      "PowerShell(gh api repos/cageymage/PersonalSite/deployments 2>&1)",
+      "Bash(git -C \"c:/dev/PersonalSite\" log --oneline -5)",
+      "Bash(git -C \"c:/dev/PersonalSite\" status)"
     ]
   }
 }
