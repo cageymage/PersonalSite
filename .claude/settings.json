@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(node check-badges.mjs)",
+      "Bash(node check-badges2.mjs)",
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"ProcessId=36256\")"
+    ]
+  }
+}

@@ -3,7 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "concurrently -n astro,wow-api -c blue,magenta \"astro dev\" \"npm run dev --prefix wow-api\"",
+    "dev:site": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -19,5 +20,8 @@
     "mermaid": "^11.16.1",
     "typescript": "^5.4.3",
     "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
   }
 }

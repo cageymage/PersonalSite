@@ -1,0 +1,14 @@
+name = "wow-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+
+# Secrets (never stored here — set via `wrangler secret put`):
+#   BLIZZARD_CLIENT_ID
+#   BLIZZARD_CLIENT_SECRET
+#
+# Vars (safe to keep in plain text, tweak per environment):
+[vars]
+WOW_REGION = "us"
+WOW_REALM_SLUG = "thrall"
+WOW_CHARACTER_NAME = "cageymage"
+ALLOWED_ORIGIN = "http://localhost:4321"
