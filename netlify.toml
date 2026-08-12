@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  PUBLIC_WOW_API_URL = "https://wow-api.dschulze244.workers.dev"
