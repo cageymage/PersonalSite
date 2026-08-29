@@ -87,6 +87,34 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			document.querySelectorAll('pre.mermaid').forEach((el) => {
 				el.setAttribute('title', 'Diagram rendered with Mermaid.js (mermaid.js.org)');
 			});
+
+			document.querySelectorAll('article pre').forEach((pre) => {
+				if (pre.classList.contains('mermaid')) return;
+				const code = pre.querySelector('code');
+				if (!code) return;
+
+				const button = document.createElement('button');
+				button.className = 'copy-code-button';
+				button.type = 'button';
+				button.textContent = 'Copy';
+				button.setAttribute('aria-label', 'Copy code to clipboard');
+
+				button.addEventListener('click', async () => {
+					try {
+						await navigator.clipboard.writeText(code.innerText);
+						button.textContent = 'Copied!';
+						button.classList.add('copied');
+					} catch {
+						button.textContent = 'Failed';
+					}
+					setTimeout(() => {
+						button.textContent = 'Copy';
+						button.classList.remove('copied');
+					}, 2000);
+				});
+
+				pre.appendChild(button);
+			});
 		</script>
 	</body>
 </html>
