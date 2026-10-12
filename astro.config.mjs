@@ -6,7 +6,7 @@ import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://dave-schulze.dev',
 	integrations: [
 		mermaid({
 			theme: 'forest',

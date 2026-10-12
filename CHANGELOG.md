@@ -2,6 +2,9 @@
 
 All notable changes to the site are documented here.
 
+## 2026-10-12
+- Set `site` in `astro.config.mjs` to `https://dave-schulze.dev` (was the `example.com` placeholder), fixing share links, canonical/OG URLs, sitemap, and RSS
+
 ## 2026-08-11
 - `/wow` now groups raids by expansion (newest first) and sorts within each expansion by most recent boss kill
 - Restyled difficulty badges with WoW-themed colors (LFR orange, Normal green, Heroic purple, Mythic glowing red) and fixed legacy 10/25-player difficulty labels
